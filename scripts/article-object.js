@@ -22,8 +22,9 @@ export default class Article {
         console.log(this.queriesFoto);
         const date = faker.date.past();
         this.DOM.querySelector('.content').innerHTML = `
-                <a class="close">black</a><header><p class="date">pubblicato il ${date.getDay() + 2} di ${month[date.getMonth()]}<span class="spacer"></span>Scritto da ${faker.name.findName()}</p><h1>${this.title}</h1><p class="caption">${this.caption}</p></header><main class="content">${this.text}</main>
+                <a class="close">black</a><header><p class="date">pubblicato il 29 di febbraio<span class="spacer"></span>Scritto da ${faker.name.findName()}</p><h1>${this.title}</h1><p class="caption">${this.caption}</p></header><main class="content">${this.text}</main>
                 `;
+        //${date.getDay() + 2} di ${month[date.getMonth()]}
         fetch(`https://source.unsplash.com/1200x700/?${this.queriesFoto[getRandomInt(0, this.queriesFoto.length)]}`).then((response) => { 
             if(response.url != 'https://images.unsplash.com/source-404?fit=crop&fm=jpg&h=800&q=60&w=1200'){
                 const image = this.DOM.querySelector('#image');
@@ -41,12 +42,14 @@ export default class Article {
         this.DOM.classList.add('open');
         document.body.classList.add('open');
         this.render('dog');
+        window.history.pushState("", this.title, '#article')
     }
 
     close(){
         this.DOM.classList.remove('open');
         document.body.classList.remove('open');
-        this.DOM.querySelector('#image').classList.remove('loaded');;
+        this.DOM.querySelector('#image').classList.remove('loaded');
+        window.history.back();
     }
 }
 
@@ -65,5 +68,5 @@ function replacer(match, p1, p2, p3, offset, string, array) {
     }else{
         parola = getNewWord(parole, p2);
     }
-    return `<span style="color:white;">${p2}_${p3} / ${parola}</span>`;
+    return parola;
   }

@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel *.html",
-    "build": "rm -rf public/dev/* && parcel build index.html --out-dir public/dev --public-url /dev/",
+    "build": "rm -rf public/dev/* && parcel build index.html --out-dir public/dev --public-url ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
