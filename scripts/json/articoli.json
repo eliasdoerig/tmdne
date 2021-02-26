@@ -189,7 +189,11 @@
         {
             "title": "Rinvenuto un ___PM___1 a Pompei",
             "queriesGIF": [
+<<<<<<< HEAD
                 "surprise"
+=======
+                "old"
+>>>>>>> 6812400ac578fd8569d2f101788c712f9fd2e553
             ],
             "queriesFoto": [
                 "roman"
