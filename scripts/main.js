@@ -21,7 +21,7 @@ import {getRandomInt} from './utils'
   }else{
     alert.style.display = "none";
   }
-  
+
   //GIF
   const giphy = {
     baseURL: 'https://api.giphy.com/v1/gifs/',
@@ -40,7 +40,8 @@ import {getRandomInt} from './utils'
     const random = null;
     const isNew = false;
     while(!isNew){
-      const r = getRandomInt(0, 22);
+      const r = getRandomInt(0, articoli.length);
+      console.log(r);
       if(!articles.indexs.includes(r)){
         articles.indexs.push(r);
         random = r;
